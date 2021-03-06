@@ -16,25 +16,35 @@ function renderLicenseBadge(license) {
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   if (license === 'MIT') {
-    return '[![MIT Link](https://opensource.org/licenses/MIT)'
+    return 'https://opensource.org/licenses/MIT'
   };
   if (license === 'GNU 3.0') {
-    return '[![GPL v3 Link](https://www.gnu.org/licenses/gpl-3.0)]'
+    return 'https://www.gnu.org/licenses/gpl-3.0'
   };
   if (license === 'ISC') {
-    return '[![ISC Link](https://opensource.org/licenses/ISC)]'
+    return 'https://opensource.org/licenses/ISC'
   }
 }
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-  
+  if (license) {
+    renderLicenseBadge()
+    renderLicenseLink()
+  } else {
+    return ""
+  }
 }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(answers) {
+  const licenseLink = renderLicenseSection(answers.license);
+  const licenseBadge = renderLicenseBadge(answers.license);
+
   return `# ${answers.title}
+  
+  ${licenseBadge}
 
   ## Table of Contents
   ---
@@ -60,7 +70,9 @@ ${answers.usage}
 
 ## License 
 ---
-${answers.license}
+This project is covered under the ${answers.license} license.
+
+Link: ${licenseLink}
 
 ## Contributing
 ---
