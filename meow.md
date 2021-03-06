@@ -1,4 +1,4 @@
-# meow
+# Meow
 
   ## Table of Contents
   ---
@@ -12,15 +12,15 @@
 
 ## Description
 ---
-meow
+Meow
 
 ## Installation 
 ---
-meow
+Meow
 
 ## Usage
 ---
-meow
+Meow
 
 ## License 
 ---
