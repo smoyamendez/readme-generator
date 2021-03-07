@@ -28,23 +28,22 @@ function renderLicenseLink(license) {
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {
-  if (license) {
-    renderLicenseBadge()
-    renderLicenseLink()
-  } else {
-    return ""
-  }
-}
+// NOT NEEDED FOR ME
+// function renderLicenseSection(license) {
+//   if (license) {
+//     renderLicenseBadge()
+//     renderLicenseLink()
+//   } else {
+//     return ""
+//   }
+// }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(answers) {
-  const licenseLink = renderLicenseSection(answers.license);
-  const licenseBadge = renderLicenseBadge(answers.license);
 
   return `# ${answers.title}
-  
-  ${licenseBadge}
+
+  ${renderLicenseBadge(answers.license)}
 
   ## Table of Contents
   ---
@@ -72,7 +71,7 @@ ${answers.usage}
 ---
 This project is covered under the ${answers.license} license.
 
-Link: ${licenseLink}
+Link: ${renderLicenseLink(answers.license)}
 
 ## Contributing
 ---
